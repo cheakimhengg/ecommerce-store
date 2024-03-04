@@ -14,7 +14,8 @@ interface GalleryProps {
 const Gallery: React.FC<GalleryProps> = ({ images }) => {
   return (
     <Tab.Group as="div" className="flex flex-col-reverse">
-      <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
+      {/* put hidden in div to make it invisible in mobile */}
+      <div className="mx-auto mt-6 w-full max-w-2xl sm:block lg:max-w-none">
         <Tab.List className="grid grid-cols-4 gap-6">
           {images.map((image) => (
             <GalleryTab key={image.id} image={image} />
@@ -25,8 +26,8 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
         {images.map((image) => (
           <Tab.Panel key={image.id}>
             <div
-              className="aspect-square relative h-full w-full sm:rounded-lg
-            overflow-hidden"
+              className="aspect-square relative h-full w-full sm:rounded-lg rounded-lg
+              overflow-hidden "
             >
               <Image
                 fill
