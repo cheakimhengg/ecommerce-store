@@ -2,21 +2,22 @@
 
 import Container from "@/components/ui/container";
 import useCart from "@/hooks/use-cart";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import CartItem from "./components/cart-item";
 import Summary from "./components/summary";
+import CartItem from "./components/cart-item";
 
-const page = () => {
-  // const [isMounted, setIsMounted] = useState(false);
+export const revalidate = 0;
 
-  // useEffect(() => {
-  //   setIsMounted(true);
-  // }, []);
-
-  // if (!isMounted) return null;
-
+const CartPage = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const cart = useCart();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
 
   return (
     <div className="bg-white">
@@ -42,4 +43,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CartPage;
