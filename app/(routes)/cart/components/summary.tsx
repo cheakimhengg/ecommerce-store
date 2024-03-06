@@ -12,27 +12,6 @@ const Summary = () => {
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
 
-  // const isFirstRun = useRef(true); // Ref to track the first run of useEffect
-
-  // useEffect(() => {
-  //   console.log("useEffect triggered");
-
-  //   // Check if it's not the first run
-  //   if (!isFirstRun.current) {
-  //     if (searchParams.get("success")) {
-  //       console.log("Success URL parameter found");
-  //       toast.success("Payment completed.");
-  //       removeAll();
-  //     }
-
-  //     if (searchParams.get("canceled")) {
-  //       console.log("Canceled URL parameter found");
-  //       toast.error("Something went wrong.");
-  //     }
-  //   }
-  //   isFirstRun.current = false;
-  // }, [searchParams, removeAll]);
-
   useEffect(() => {
     if (searchParams.get("success")) {
       toast.success("Payment completed.");
